@@ -1,5 +1,5 @@
-app/values/fb-creds.js
 css/
 lib/node_modules/*
 lib/.sass-cache/*
 .DS_Store
+app/values/fb-creds.js
