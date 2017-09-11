@@ -1,4 +1,4 @@
-app/creds/*
+app/values/*
 app/controllers/test.controller.js
 css/
 lib/node_modules/*
