@@ -1,5 +1,4 @@
-app/creds/*
-app/controllers/test.controller.js
+app/values/fb-creds.js
 css/
 lib/node_modules/*
 lib/.sass-cache/*
