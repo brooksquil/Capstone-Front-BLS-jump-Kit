@@ -1,0 +1,68 @@
+<!-- LOGOUT/(STRETCH)USER EDIT PROFILE MODAL -->
+<div id="wrap" class="text-center">
+    <!-- Button trigger modal -->
+    <br>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Settings</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                <br><br>
+                <!-- <button><a ng-click="logout()" data-dismiss="modal" href="#/">Logout</a></button>
+                <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6"> -->
+                <a href="#/"><button ng-click="logout()" data-dismiss="modal" class="btn btn-default logbutton">Logout</button></a>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- PROFILE PAGE CARD VIEW -->
+<div class="cards-wrapper">
+    <div class="card-wrapper">
+        <div class="card-1 card-object card-object-hf">
+            <div id="wrap" class="text-center">
+                <a class="face front" data-toggle="modal" data-target="#myModal2">
+                    <div class="title-wrapper">
+                        <div class="title">Add Patient</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-wrapper">
+        <div class="card-3 card-object card-object-hf">
+            <a class="face front" href="#">
+                <div class="title-wrapper">
+                    <div class="title">Select Patient</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ADD PATIENT MODAL -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                <br><br>
+                <h1>Modal with blur effect</h1>
+                <h2>Put here whatever you want here</h2>
+                <h4>For instance, a login form or an article content</h4>
+                <h4><kbd>esc</kbd> or click anyway to close</h4>
+                <hr>
+                <div class="alert alert-danger">
+                    <h4>You can add any html and css ;)</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

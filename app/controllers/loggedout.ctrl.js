@@ -3,7 +3,7 @@ console.log("loggedout.ctrl.js", "authCtrl");
 
 app.controller("authCtrl", function($scope, $window, userFactory, $location) {
 
-    console.log("they all float down here");
+    console.log("authCtrl, they all float down here");
 
     $scope.account = {
         email: "",
@@ -27,7 +27,7 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location) {
     $scope.logIn = () => {
         userFactory.logIn($scope.account)
             .then(() => {
-                $window.location.href = "#!/user-profile";
+                $window.location.href = "#!/profile";
             });
     };
 
@@ -47,7 +47,7 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location) {
         userFactory.authWithProvider()
             .then((result) => {
                 let user = result.user.uid;
-                $location.path("/user-profile");
+                $window.location.href = "#!/profile";
                 $scope.apply();
             }).catch((error) => {
                 console.log("google login error");
@@ -56,5 +56,6 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location) {
                 console.log("errors", errorCode, errorMessage);
             });
     };
+
 
 });
