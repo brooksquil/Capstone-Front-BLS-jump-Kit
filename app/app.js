@@ -46,3 +46,22 @@ app.config(($routeProvider) => {
 });
 
 // not done, not yet sure of routing or if modals need to be routed in
+
+/////////////////////////////////////////////////////
+//Firebase Initialize and config fb object for login
+/////////////////////////////////////////////////////
+
+app.run(($location, FBCreds) => {
+    let creds = FBCreds;
+    let authConfig = {
+        apiKey: creds.apiKey,
+        authDomain: creds.authDomain,
+        databaseURL: creds.databaseURL
+    };
+
+    firebase.initializeApp(authConfig);
+});
+
+app.run(function($rootScope) {
+    $rootScope.showSearch = false;
+});
