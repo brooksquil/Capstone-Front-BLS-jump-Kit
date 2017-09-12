@@ -3,7 +3,7 @@ console.log("loggedout.ctrl.js", "authCtrl");
 
 app.controller("authCtrl", function($scope, $window, userFactory, $location) {
 
-    console.log("they all float down here");
+    console.log("authCtrl, they all float down here");
 
     $scope.account = {
         email: "",
@@ -27,7 +27,7 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location) {
     $scope.logIn = () => {
         userFactory.logIn($scope.account)
             .then(() => {
-                $window.location.href = "#!/user-profile";
+                $window.location.href = "#!/profile";
             });
     };
 
@@ -47,7 +47,7 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location) {
         userFactory.authWithProvider()
             .then((result) => {
                 let user = result.user.uid;
-                $location.path("/user-profile");
+                $window.location.href = "#!/profile";
                 $scope.apply();
             }).catch((error) => {
                 console.log("google login error");
@@ -57,23 +57,5 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location) {
             });
     };
 
-    $scope.isLoggedIn = false;
-
-    $scope.logout = () => {
-        userFactory.logOut();
-    };
-
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            $scope.isLoggedIn = true;
-            console.log("currentUser logged in?", user);
-            console.log("logged in t-f", $scope.isLoggedIn);
-            $scope.$apply();
-        } else {
-            $scope.isLoggedIn = false;
-            console.log("user logged in?", $scope.isLoggedIn);
-            $window.location.href = "#!/login";
-        }
-    });
 
 });
