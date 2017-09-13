@@ -1,4 +1,6 @@
 css/
+sass/main.css/
+sass/main.min.css/
 lib/node_modules/*
 lib/.sass-cache/*
 .DS_Store
