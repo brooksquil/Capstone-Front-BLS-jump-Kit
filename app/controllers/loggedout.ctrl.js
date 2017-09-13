@@ -5,6 +5,7 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location) {
 
     console.log("authCtrl, they all float down here");
 
+
     $scope.account = {
         email: "",
         password: ""
