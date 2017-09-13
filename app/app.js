@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module("jump-kit", ['ngRoute', 'ui.bootstrap']);
+const app = angular.module("jump-kit", ['ngRoute']);
 
 let isAuth = (userFactory) => new Promise((resolve, reject) => {
     console.log("isAuth is", userFactory);
