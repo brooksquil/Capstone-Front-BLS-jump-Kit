@@ -1,23 +1,13 @@
 "use strict";
 console.log("user.profile.ctrl.js", "profileCtrl");
 
-app.controller("profileCtrl", function($scope, $window, userFactory, $location) {
+app.controller("profileCtrl", function($scope, $window, userFactory, patientFactory, $location) {
+    console.log("Are you there?");
 
-    /////////////////////////////////
-    //CARD SCRIPTS
-    /////////////////////////////////
-    var $cards = $('.card-object'),
-        $faceButtons = $('.face');
 
-    $faceButtons.on('click', flipCard);
-
-    function flipCard(event) {
-        event.preventDefault();
-    }
-
-    ////////////////////////////
-    //Logout Functions 
-    ////////////////////////////  
+    /////////////////////////////////////
+    //Logout Functions IN SETTINGS MODAL
+    ///////////////////////////////////// 
     $scope.isLoggedIn = false;
 
     $scope.logout = () => {
@@ -37,4 +27,36 @@ app.controller("profileCtrl", function($scope, $window, userFactory, $location) 
         }
     });
 
+
+    ///////////////////////////////////////
+    //ADD PATIENT MODAL STUFF
+    ///////////////////////////////////////
+    let user = userFactory.getCurrentUser();
+
+    $scope.patient = {
+        patientID: "",
+        calledFor: "",
+        // timeStamp: "", commented until I hook up moment
+        uid: user
+    };
+
+    $scope.submitPatient = function() {
+        console.log("you clicked add patient");
+        patientFactory.addPatient($scope.patient)
+            .then((data) => {
+                $location.url("/menu");
+            });
+    };
+
+    /////////////////////////////////
+    //CARD SCRIPTS
+    /////////////////////////////////
+    var $cards = $('.card-object'),
+        $faceButtons = $('.face');
+
+    $faceButtons.on('click', flipCard);
+
+    function flipCard(event) {
+        event.preventDefault();
+    }
 });
