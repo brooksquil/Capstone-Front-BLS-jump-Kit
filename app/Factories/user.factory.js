@@ -4,14 +4,17 @@ console.log("user factory");
 app.factory("userFactory", function($q, $http) {
 
     let currentUser = null;
+    let addNewUserObj = [];
 
     const isAuthenticated = function() {
         console.log("userFactory: isAuthentcated");
-        return $q((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
                     currentUser = user.uid;
-                    console.log("user", user.uid);
+                    addNewUserObj.push({
+                        userEmail: user.email
+                    });
                     resolve(true);
                 } else {
                     resolve(false);

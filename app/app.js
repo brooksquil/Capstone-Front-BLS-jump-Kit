@@ -28,7 +28,7 @@ app.config(($routeProvider) => {
         })
         //do I need to put partial here for modal to add patient?
         .when('/menu', {
-            templateUrl: 'partials/assessment.menu.html',
+            templateUrl: 'partials/menu.html',
             controller: 'menuCtrl',
             resolve: { isAuth }
         })

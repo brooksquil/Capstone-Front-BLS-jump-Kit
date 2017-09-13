@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-lg-4">
                 <label for="email">EMAIL</label>
-                <input name="email" class="form-control" type="email">
+                <input ng-model="newUser.email" name="email" class="form-control" type="email">
             </div>
         </div>
         <div class="row">
@@ -14,13 +14,13 @@
         </div>
         <hr>
         <div class="row">
-            <!-- <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-                <button ng-click="register()" class="btn btn-default regbutton">Register</button>
+            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                <button ng-click="submitUser()" class="btn btn-default regbutton">Register</button>
 
-            </div> -->
-            <!-- <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
                 <button ng-click="logIn()" class="btn btn-default logbutton">Login</button>
-            </div> -->
+            </div>
             <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8">
                 <button ng-click="loginGoogle()" class="btn btn-default googlebutton">Login With Google</button>
             </div>
