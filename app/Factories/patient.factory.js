@@ -36,6 +36,10 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
             });
     };
 
+    // const getCurrentPatient = function() {
+    //     return currentPatient;
+    // };
+
     const deletePatient = function(id) {
         return $q((resolve, reject) => {
             $http.delete(`${FBCreds.databaseURL}/patient/${id}.json`)
