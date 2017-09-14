@@ -34,11 +34,21 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
                 let errorMessage = error.message;
                 console.log("error", errorCode, errorMessage);
             });
+
     };
 
-    // const getCurrentPatient = function() {
-    //     return currentPatient;
-    // };
+    const getPatientId = function(patientId) {
+        return $q((resolve, reject) => {
+            $http.get(`${FBCreds.databaseURL}/patients/${patientId}.json`)
+                .then((itemObj) => {
+                    resolve(itemObj.data);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    };
+
 
     const deletePatient = function(id) {
         return $q((resolve, reject) => {
@@ -64,5 +74,5 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
         });
     };
 
-    return { getAllPatients, addPatient, deletePatient, getSinglePatient };
+    return { getAllPatients, addPatient, deletePatient, getSinglePatient, getPatientId };
 });

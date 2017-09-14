@@ -40,4 +40,5 @@ app.controller("historyCtrl", function($scope, $window, $location, historyFactor
     };
 
 
+
 });
