@@ -33,6 +33,7 @@ app.controller("profileCtrl", function($scope, $window, userFactory, patientFact
     ///////////////////////////////////////
     let user = userFactory.getCurrentUser();
 
+
     $scope.patient = {
         patientID: "",
         calledFor: "",

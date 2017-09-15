@@ -37,17 +37,17 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
     };
 
-    const getPatientId = function(patientId) {
-        return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/patients/${patientId}.json`)
-                .then((itemObj) => {
-                    resolve(itemObj.data);
-                })
-                .catch((error) => {
-                    reject(error);
-                });
-        });
-    };
+    // const getPatientId = function(uid) {
+    //     return $q((resolve, reject) => {
+    //         $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"&equalTo="${uid}"`)
+    //             .then((itemObj) => {
+    //                 resolve(itemObj.data);
+    //             })
+    //             .catch((error) => {
+    //                 reject(error);
+    //             });
+    //     });
+    // };
 
 
     const deletePatient = function(id) {
@@ -62,17 +62,25 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
         });
     };
 
-    const getSinglePatient = function(itemId) {
+    const getSinglePatientid = function(patientId) {
+        let patientsById = [];
         return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/patients/${itemId}.json`)
+            $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"`)
                 .then((itemObj) => {
-                    resolve(itemObj.data);
+                    let patientIdCollection = itemObj.data;
+                    console.log("patientId Collection", patientIdCollection);
+                    Object.keys(patientIdCollection).forEach((key) => {
+                        patientIdCollection[key].id = key;
+                        patientsById.push(patientIdCollection[key]);
+                    });
+                    resolve(patientsById);
                 })
                 .catch((error) => {
                     reject(error);
                 });
+
         });
     };
 
-    return { getAllPatients, addPatient, deletePatient, getSinglePatient, getPatientId };
+    return { getAllPatients, addPatient, deletePatient, getSinglePatientid };
 });
