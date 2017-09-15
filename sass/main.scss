@@ -209,34 +209,35 @@ body {
     background-size: 130%;
 }
 
-.face {
-    color: #fff;
-    text-decoration: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.face.front {
+// .face {
+//     color: #fff;
+//     text-decoration: none;
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -webkit-box-pack: center;
+//     -ms-flex-pack: center;
+//     justify-content: center;
+//     -webkit-box-align: end;
+//     -ms-flex-align: end;
+//     align-items: flex-end;
+//     -ms-flex-wrap: wrap;
+//     flex-wrap: wrap;
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     -webkit-backface-visibility: hidden;
+//     backface-visibility: hidden;
+// }
+// .face
+.front {
     z-index: 20;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
-.face.front::before {
+// .face
+.front::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -251,7 +252,8 @@ body {
     transition: opacity .2s ease;
 }
 
-.face.front::after {
+// .face
+.front::after {
     position: absolute;
     top: 7%;
     right: 7%;
@@ -262,7 +264,8 @@ body {
     content: "";
 }
 
-.face.front .title-wrapper {
+// .face
+.front .title-wrapper {
     position: absolute;
     bottom: 3%;
     left: 25%;
@@ -289,7 +292,8 @@ body {
     transition: transform .28s ease, -webkit-transform .28s ease;
 }
 
-.face.front .title-wrapper .title {
+// .face
+.front .title-wrapper .title {
     position: relative;
     font-family: 'Archivo Black', sans-serif;
     width: 100%;
@@ -301,7 +305,8 @@ body {
     transition: opacity .2s ease;
 }
 
-.face.front .title-wrapper .title::after {
+// .face
+.front .title-wrapper .title::after {
     display: block;
     margin: 7% auto 8% auto;
     width: 100%;
@@ -317,7 +322,8 @@ body {
     transition: transform .15s, -webkit-transform .15s;
 }
 
-.face.front .title-wrapper .subtitle {
+// .face
+.front .title-wrapper .subtitle {
     font-size: .9vw;
     line-height: 1;
     letter-spacing: 1px;
@@ -327,20 +333,24 @@ body {
     transition: opacity .15s;
 }
 
-.face.front:hover::before {
+// .face
+.front:hover::before {
     opacity: .9;
 }
 
-.face.front:hover .title-wrapper {
+// .face
+.front:hover .title-wrapper {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
-.face.front:hover .title-wrapper .title {
+// .face
+.front:hover .title-wrapper .title {
     opacity: 1;
 }
 
-.face.front:hover .title-wrapper .title::after {
+// .face
+.front:hover .title-wrapper .title::after {
     -webkit-transform: scale(1);
     transform: scale(1);
     opacity: .5;
@@ -350,7 +360,8 @@ body {
     transition-duration: .2s;
 }
 
-.face.front:hover .title-wrapper {
+// .face
+.front:hover .title-wrapper {
     opacity: .7;
     -webkit-transition-delay: .2s;
     transition-delay: .2s;
@@ -428,5 +439,154 @@ a.wrimagecard:hover,
 }
 
 ////////////////////////////////////////////////
-//Drop Down Buttons
+//Patient Report Styles
 ////////////////////////////////////////////////
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300italic,400italic,600,700,600italic,700italic);
+body {
+    font-family: "Josefin Sans", sans-serif;
+    line-height: 1;
+    padding: 20px;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(22, 167, 175, 0.6) 5%, rgba(23, 27, 158, 0.7) 55%, rgba(68, 9, 82, 0.5) 100%) no-repeat;
+    background-size: 200%;
+}
+
+.demo-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.pricing-table {
+    display: table;
+    width: 100%;
+}
+
+.pricing-table .pricing-option {
+    width: 28%;
+    background: white;
+    float: left;
+    padding: 2%;
+    text-align: center;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.pricing-table .pricing-option:nth-child(even) {
+    margin: 0 2%;
+}
+
+.pricing-table .pricing-option:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.3);
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+}
+
+.pricing-table .pricing-option:hover i,
+.pricing-table .pricing-option:hover h1,
+.pricing-table .pricing-option:hover span,
+.pricing-table .pricing-option:hover b {
+    color: #F85E6A;
+}
+
+.pricing-table .pricing-option:hover .front {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.pricing-table .pricing-option:hover .back {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.pricing-table .pricing-option:hover .back a.button {
+    -webkit-transform: translateY(0px) !important;
+    transform: translateY(0px) !important;
+}
+
+.pricing-table .pricing-option hr {
+    border: none;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.pricing-table .pricing-option i {
+    font-size: 3rem;
+    color: #D8D8D8;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.pricing-table .pricing-option h1 {
+    margin: 10px 0;
+    color: #212121;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.pricing-table .pricing-option p {
+    color: #999;
+    padding: 0 10px;
+    line-height: 1.3;
+}
+
+.pricing-table .pricing-option .price {
+    position: relative;
+}
+
+.pricing-table .pricing-option .price .front span.price {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-top: 20px;
+    display: block;
+    font-weight: 700;
+    position: relative;
+}
+
+.pricing-table .pricing-option .price .front span.price b {
+    position: absolute;
+    font-size: 1rem;
+    margin-left: 2px;
+    font-weight: 600;
+}
+
+.pricing-table .pricing-option .price .back {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.pricing-table .pricing-option .price .back a.button {
+    background: #F85E6A;
+    padding: 15px 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    font-size: 13px;
+    top: -5px;
+    left: 0;
+    right: 0;
+    width: 150px;
+    margin: auto;
+    text-transform: uppercase;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.pricing-table .pricing-option .price .back a.button:hover {
+    background: #f62d3d;
+}
+
+@media screen and (max-width: 600px) {
+    .pricing-table .pricing-option {
+        padding: 5%;
+        width: 90%;
+    }
+    .pricing-table .pricing-option:nth-child(even) {
+        margin: 30px 0 !important;
+    }
+}

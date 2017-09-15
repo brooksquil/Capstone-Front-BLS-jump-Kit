@@ -49,9 +49,11 @@ app.factory("historyFactory", function($q, $http, FBCreds) {
     };
 
     const getSingleHistory = function(itemId) {
+        console.log("get single history", itemId);
         return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/history/${itemId}.json`)
+            $http.get(`${FBCreds.databaseURL}/history.json?orderBy="${itemId}"&equalTo="${patientId}"`)
                 .then((itemObj) => {
+                    console.log("item object", itemObj);
                     resolve(itemObj.data);
                 })
                 .catch((error) => {

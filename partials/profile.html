@@ -9,7 +9,7 @@
     <div class="card-wrapper">
         <div class="card-1 card-object card-object-hf">
             <div id="wrap" class="text-center">
-                <a class="face front" data-toggle="modal" data-target="#myModal2">
+                <a ng-href="#!/add-patient" class="front">
                     <div class="title-wrapper">
                         <div class="title">Add Patient</div>
                     </div>
@@ -27,43 +27,3 @@
         </div>
     </div>
 </div>
-
-<!-- ADD PATIENT MODAL -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 text-center">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
-                <br><br>
-                <div class="col-sm-12">
-                    <h4>Add Patient</h4>
-                    <div class="panel panel-default">
-                        <div class="panel-body form-horizontal payment-form">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="concept" name="concept" placeholder="Run Number" ng-model="patient.patientID">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Called For" ng-model="patient.calledFor">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 text-center">
-                                    <button data-dismiss="modal" ng-click="submitPatient()" type="button" class="btn btn-default preview-add-button">
-                                                <span class="glyphicon glyphicon-plus "></span> Add
-                                            </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- SCRAPS -->

@@ -26,10 +26,14 @@ app.config(($routeProvider) => {
             controller: 'profileCtrl',
             resolve: { isAuth }
         })
-        //do I need to put partial here for modal to add patient?
+        .when('/add-patient', {
+            templateUrl: 'partials/add.patient.html',
+            controller: 'addPatientCtrl',
+            resolve: { isAuth }
+        })
         .when('/menu', {
             templateUrl: 'partials/menu.html',
-            controller: 'menuCtrl',
+            controller: 'reportCtrl',
             resolve: { isAuth }
         })
         .when('/menu/history', {
@@ -38,7 +42,7 @@ app.config(($routeProvider) => {
             resolve: { isAuth }
         })
         .when('/menu/report', {
-            templateUrl: 'partials/patient.report.html',
+            templateUrl: 'partials/report.html',
             controller: 'reportCtrl',
             resolve: { isAuth }
         })
