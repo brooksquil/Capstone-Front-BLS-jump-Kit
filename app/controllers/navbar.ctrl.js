@@ -1,12 +1,8 @@
 "use strict";
 
-app.controller("navCtrl", function($scope, $window, userFactory, $apply) {
+app.controller("navCtrl", function($scope, $window, userFactory, $apply, $location) {
 
     $scope.isLoggedIn = false;
-
-    $scope.logout = () => {
-        userFactory.logOut();
-    };
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -17,7 +13,7 @@ app.controller("navCtrl", function($scope, $window, userFactory, $apply) {
         } else {
             $scope.isLoggedIn = false;
             console.log("user logged in?", $scope.isLoggedIn);
-            $window.location.href = "#!/";
+            $location.url("/");
         }
     });
 

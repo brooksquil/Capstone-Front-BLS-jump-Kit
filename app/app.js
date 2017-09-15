@@ -22,7 +22,7 @@ app.config(($routeProvider) => {
             controller: 'authCtrl'
         })
         .when('/profile', {
-            templateUrl: 'partials/user.profile.html',
+            templateUrl: 'partials/profile.html',
             controller: 'profileCtrl',
             resolve: { isAuth }
         })
@@ -33,7 +33,7 @@ app.config(($routeProvider) => {
             resolve: { isAuth }
         })
         .when('/menu/history', {
-            templateUrl: 'partials/pt.history.html',
+            templateUrl: 'partials/history.html',
             controller: 'historyCtrl',
             resolve: { isAuth }
         })

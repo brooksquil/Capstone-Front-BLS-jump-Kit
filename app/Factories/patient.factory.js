@@ -1,7 +1,9 @@
 "use strict";
-console.log("Patient factory file");
+// console.log("Patient factory file");
 
 app.factory("patientFactory", function($q, $http, FBCreds) {
+
+    let currentPatientId = null;
 
     const getAllPatients = function(user) {
         let patients = [];
@@ -23,8 +25,11 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
         });
     };
 
+
     const addPatient = function(obj) {
         let newObj = JSON.stringify(obj);
+        console.log("obj.patientId", obj.patientID);
+        currentPatientId = obj.patientID;
         return $http.post(`${FBCreds.databaseURL}/patients.json`, newObj)
             .then((data) => {
                 console.log("data", data);
@@ -37,17 +42,11 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
     };
 
-    // const getPatientId = function(uid) {
-    //     return $q((resolve, reject) => {
-    //         $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"&equalTo="${uid}"`)
-    //             .then((itemObj) => {
-    //                 resolve(itemObj.data);
-    //             })
-    //             .catch((error) => {
-    //                 reject(error);
-    //             });
-    //     });
-    // };
+    const getCurrentPatient = function() {
+        return currentPatientId;
+    };
+
+
 
 
     const deletePatient = function(id) {
@@ -62,25 +61,18 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
         });
     };
 
-    const getSinglePatientid = function(patientId) {
-        let patientsById = [];
-        return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"`)
-                .then((itemObj) => {
-                    let patientIdCollection = itemObj.data;
-                    console.log("patientId Collection", patientIdCollection);
-                    Object.keys(patientIdCollection).forEach((key) => {
-                        patientIdCollection[key].id = key;
-                        patientsById.push(patientIdCollection[key]);
-                    });
-                    resolve(patientsById);
-                })
-                .catch((error) => {
-                    reject(error);
-                });
+    // const getSinglePatientid = function(passedId) {
+    //     return $q((resolve, reject) => {
+    //         $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"&equalTo="${passedId}"`)
+    //             .then((patient) => {
+    //                 console.log("patient id object", patient);
+    //                 resolve(patientsById);
+    //             })
+    //             .catch((error) => {
+    //                 reject(error);
+    //             });
+    //     });
+    // };
 
-        });
-    };
-
-    return { getAllPatients, addPatient, deletePatient, getSinglePatientid };
+    return { getAllPatients, addPatient, deletePatient, getCurrentPatient };
 });
