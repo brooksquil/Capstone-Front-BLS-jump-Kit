@@ -1,5 +1,5 @@
 "use strict";
-console.log("user factory");
+// console.log("user factory");
 
 app.factory("userFactory", function($q, $http) {
 

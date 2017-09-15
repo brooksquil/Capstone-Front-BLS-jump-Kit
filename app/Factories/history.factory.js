@@ -1,5 +1,5 @@
 "use strict";
-console.log("History factory file");
+// console.log("History factory file");
 
 app.factory("historyFactory", function($q, $http, FBCreds) {
 

@@ -1,5 +1,5 @@
 "use strict";
-console.log("user.profile.ctrl.js", "profileCtrl");
+// console.log("user.profile.ctrl.js", "profileCtrl");
 
 app.controller("profileCtrl", function($scope, $window, userFactory, patientFactory, $location) {
     console.log("Are you there?");
@@ -11,7 +11,9 @@ app.controller("profileCtrl", function($scope, $window, userFactory, patientFact
     $scope.isLoggedIn = false;
 
     $scope.logout = () => {
+        console.log("Logout Function Runs");
         userFactory.logOut();
+        $location.url("/");
     };
 
     firebase.auth().onAuthStateChanged(function(user) {
@@ -23,7 +25,7 @@ app.controller("profileCtrl", function($scope, $window, userFactory, patientFact
         } else {
             $scope.isLoggedIn = false;
             console.log("user logged in?", $scope.isLoggedIn);
-            $window.location.href = "#!/login";
+            $window.location.href = "#!/";
         }
     });
 
@@ -43,6 +45,7 @@ app.controller("profileCtrl", function($scope, $window, userFactory, patientFact
 
     $scope.submitPatient = function() {
         console.log("you clicked add patient");
+        console.log("patient being added", $scope.patient);
         patientFactory.addPatient($scope.patient)
             .then((data) => {
                 $location.url("/menu");

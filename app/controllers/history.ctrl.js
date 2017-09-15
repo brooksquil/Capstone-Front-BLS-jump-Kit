@@ -1,5 +1,5 @@
 "use strict";
-console.log("pt.history.ctrl.js", "historyCtrl");
+// console.log("pt.history.ctrl.js", "historyCtrl");
 
 app.controller("historyCtrl", function($scope, $window, $location, historyFactory, userFactory, patientFactory) {
 
@@ -17,12 +17,12 @@ app.controller("historyCtrl", function($scope, $window, $location, historyFactor
     //Add History Object to FB
     //////////////////////////////
     let user = userFactory.getCurrentUser();
-    let patient = patientFactory.getSinglePatientid();
-    console.log("Patient Id?", patient);
+    let patientId = patientFactory.getCurrentPatient();
+    console.log("Patient Id?", patientId);
 
     $scope.history = {
         uid: user,
-        patientId: patient,
+        patientId: patientId,
         symptoms: "",
         allergies: "",
         medications: "",

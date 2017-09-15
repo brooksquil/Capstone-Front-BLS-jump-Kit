@@ -1,9 +1,9 @@
 "use strict";
-console.log("loggedout.ctrl.js", "authCtrl");
+// console.log("loggedout.ctrl.js", "authCtrl");
 
 app.controller("authCtrl", function($scope, $window, userFactory, $location, handleUserFactory) {
 
-    console.log("authCtrl, they all float down here");
+    // console.log("authCtrl, they all float down here");
 
 
     $scope.account = {
@@ -11,22 +11,9 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location, han
         password: ""
     };
 
-    $scope.register = () => {
-        console.log("you registered");
-        userFactory.register({
-                email: $scope.account.email,
-                password: $scope.account.password
-            })
-            .then((userData) => {
-                console.log("User Controller", userData);
-                $scope.logIn();
-            }, (error) => {
-                console.log("error creating user", error);
-            });
-    };
 
     //////////////////////////
-    //REGISTER NEW USER
+    //REGISTER NEW USER if form added for EMT info
     //////////////////////////
     let user = userFactory.getCurrentUser();
 
@@ -45,33 +32,23 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location, han
         console.log("newuser", $scope.newUser);
         handleUserFactory.addNewUser($scope.newUser)
             .then((data) => {
-                $location.url("/profile");
+                $location.url("#!/profile");
                 $scope.apply();
             });
     };
 
 
 
-
-
-    $scope.logIn = () => {
-        userFactory.logIn($scope.account)
-            .then(() => {
-                // $window.location.href = "#!/profile";
-            });
-    };
-
-    let logout = () => {
-        console.log("logout clicked");
-        userFactory.logOut()
-            .then(function() {
-                console.log("logged out!");
-                // $window.location.href = "#!/";
-                // $scope.apply();
-            }, function(error) {
-                console.log("error on logout");
-            });
-    };
+    // $scope.logout = () => {
+    //     console.log("logout clicked");
+    //     userFactory.logOut()
+    //         .then(function() {
+    //             console.log("logged out!");
+    //             $window.location.href = "#!/";
+    //         }, function(error) {
+    //             console.log("error on logout");
+    //         });
+    // };
 
     $scope.loginGoogle = () => {
         console.log("you clicked google login");
@@ -79,8 +56,7 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location, han
         userFactory.authWithProvider()
             .then((result) => {
                 let user = result.user.uid;
-                // $window.location.href = "#!/profile";
-                // $scope.apply();
+                $window.location.href = "#!/profile";
             }).catch((error) => {
                 console.log("google login error");
                 let errorCode = error.code;

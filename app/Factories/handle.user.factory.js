@@ -1,5 +1,5 @@
 "use strict";
-console.log("handle users factory file");
+// console.log("handle users factory file");
 
 app.factory("handleUserFactory", function($q, $http, FBCreds) {
 
