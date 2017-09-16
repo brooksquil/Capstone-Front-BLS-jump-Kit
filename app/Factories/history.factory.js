@@ -27,7 +27,7 @@ app.factory("historyFactory", function($q, $http, FBCreds) {
         let newObj = JSON.stringify(obj);
         return $http.post(`${FBCreds.databaseURL}/history.json`, newObj)
             .then((data) => {
-                console.log("data", data);
+                console.log("add history data", data);
                 return data;
             }, (error) => {
                 let errorCode = error.code;
@@ -48,12 +48,13 @@ app.factory("historyFactory", function($q, $http, FBCreds) {
         });
     };
 
-    const getSingleHistory = function(itemId) {
-        console.log("get single history", itemId);
+    const getSingleHistory = function(currentPatient) {
+        console.log("get single history", currentPatient);
         return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/history.json?orderBy="${itemId}"&equalTo="${patientId}"`)
+            $http.get(`${FBCreds.databaseURL}/history.json?&orderBy="patientId"&equalTo="${currentPatient}"`)
                 .then((itemObj) => {
-                    console.log("item object", itemObj);
+                    let singleHistory = itemObj.data;
+                    console.log("item object single history", singleHistory);
                     resolve(itemObj.data);
                 })
                 .catch((error) => {
