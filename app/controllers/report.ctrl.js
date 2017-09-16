@@ -4,26 +4,18 @@ console.log("reportCtrl");
 app.controller("reportCtrl", function($scope, $window, userFactory, patientFactory, $location, historyFactory) {
 
     //call current patient
-    let patientId = patientFactory.getCurrentPatient();
-    console.log("Patient Id for Get History?", patientId);
+    let currentPatient = patientFactory.getCurrentPatient();
+    console.log("Patient Id for Get History?", currentPatient);
 
 
     //call curent patient history object back from firebase
-    $scope.patientHistory = function() {
+    $scope.currentPatientHistory = function() {
         console.log("you clicked patient report!!");
-        historyFactory.getSingleHistory(patientId)
+        historyFactory.getSingleHistory(currentPatient)
             .then((data) => {
-                console.log(data);
-                // return data;
+                let thisPatientHistory = data;
+                console.log(thisPatientHistory);
+                return thisPatientHistory;
             });
     };
 });
-
-// $scope.submitHistory = function() {
-//     console.log("you clicked submit history");
-//     console.log("Symptoms", $scope.history.symptoms);
-//     historyFactory.addHistory($scope.history)
-//         .then((data) => {
-//             $location.url("/menu");
-//         });
-// };
