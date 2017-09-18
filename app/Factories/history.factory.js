@@ -55,7 +55,7 @@ app.factory("historyFactory", function($q, $http, FBCreds) {
                 .then((itemObj) => {
                     let singleHistory = itemObj.data;
                     console.log("item object single history", singleHistory);
-                    resolve(itemObj.data);
+                    resolve(singleHistory[Object.keys(singleHistory)[0]]);
                 })
                 .catch((error) => {
                     reject(error);
