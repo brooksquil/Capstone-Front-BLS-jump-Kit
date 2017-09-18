@@ -61,18 +61,21 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
         });
     };
 
-    // const getSinglePatientid = function(passedId) {
-    //     return $q((resolve, reject) => {
-    //         $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"&equalTo="${passedId}"`)
-    //             .then((patient) => {
-    //                 console.log("patient id object", patient);
-    //                 resolve(patientsById);
-    //             })
-    //             .catch((error) => {
-    //                 reject(error);
-    //             });
-    //     });
-    // };
+    const getSinglePatientid = function(passedId) {
+        return $q((resolve, reject) => {
+            $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"&equalTo="${passedId}"`)
+                .then((patient) => {
+                    // console.log("patient id object", patient);
+                    let singlePatientObj = patient;
+                    $scope.singlePatientObj = singlePatientObj;
+                    console.log("scoped obj", $scope.singlePatientObj);
+                    resolve($scope.singlePatientObj);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    };
 
     return { getAllPatients, addPatient, deletePatient, getCurrentPatient };
 });
