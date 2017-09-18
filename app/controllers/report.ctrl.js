@@ -13,9 +13,11 @@ app.controller("reportCtrl", function($scope, $window, userFactory, patientFacto
         console.log("you clicked patient report!!");
         historyFactory.getSingleHistory(currentPatient)
             .then((data) => {
+                console.log("data in report control", data);
                 let thisPatientHistory = data;
                 $scope.thisPatientHistory = thisPatientHistory;
                 console.log("This one", $scope.thisPatientHistory);
             });
     };
+    $scope.currentPatientHistory();
 });
