@@ -31,6 +31,11 @@ app.config(($routeProvider) => {
             controller: 'addPatientCtrl',
             resolve: { isAuth }
         })
+        .when('/select-patient', {
+            templateUrl: 'partials/select.patient.html',
+            controller: 'selectPatientCtrl',
+            resolve: { isAuth }
+        })
         .when('/menu', {
             templateUrl: 'partials/menu.html',
             controller: 'reportCtrl',

@@ -5,6 +5,7 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
     let currentPatientId = null;
 
+
     const getAllPatients = function(user) {
         let patients = [];
         console.log("url is", `${FBCreds.databaseURL}/patients.json?orderBy="uid"&equalTo="${user}"`);
@@ -50,8 +51,9 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
 
     const deletePatient = function(id) {
+        console.log("id", id);
         return $q((resolve, reject) => {
-            $http.delete(`${FBCreds.databaseURL}/patient/${id}.json`)
+            $http.delete(`${FBCreds.databaseURL}/patients/${id}.json`)
                 .then((response) => {
                     resolve(response);
                 })
