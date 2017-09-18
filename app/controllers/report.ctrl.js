@@ -14,8 +14,8 @@ app.controller("reportCtrl", function($scope, $window, userFactory, patientFacto
         historyFactory.getSingleHistory(currentPatient)
             .then((data) => {
                 let thisPatientHistory = data;
-                console.log(thisPatientHistory);
-                return thisPatientHistory;
+                $scope.thisPatientHistory = thisPatientHistory;
+                console.log("This one", $scope.thisPatientHistory);
             });
     };
 });
