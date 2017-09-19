@@ -13,7 +13,7 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location, han
 
 
     //////////////////////////
-    //REGISTER NEW USER if form added for EMT info
+    //REGISTER NEW USER
     //////////////////////////
     let user = userFactory.getCurrentUser();
 
@@ -38,18 +38,6 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location, han
     };
 
 
-
-    // $scope.logout = () => {
-    //     console.log("logout clicked");
-    //     userFactory.logOut()
-    //         .then(function() {
-    //             console.log("logged out!");
-    //             $window.location.href = "#!/";
-    //         }, function(error) {
-    //             console.log("error on logout");
-    //         });
-    // };
-
     $scope.loginGoogle = () => {
         console.log("you clicked google login");
 
@@ -64,6 +52,5 @@ app.controller("authCtrl", function($scope, $window, userFactory, $location, han
                 console.log("errors", errorCode, errorMessage);
             });
     };
-
 
 });

@@ -37,8 +37,24 @@ app.factory("historyFactory", function($q, $http, FBCreds) {
     };
 
     const deleteHistory = function(id) {
+        console.log("history factory id", id);
         return $q((resolve, reject) => {
             $http.delete(`${FBCreds.databaseURL}/history/${id}.json`)
+                .then((response) => {
+                    resolve(response);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    };
+
+
+    const editHistory = function(id, obj) {
+        return $q((resolve, reject) => {
+            // stringify and strips out angular meta data
+            let stringObject = angular.toJson(obj);
+            $http.patch(`${FBCreds.databaseURL}/history/${id}.json`, stringObject)
                 .then((response) => {
                     resolve(response);
                 })
@@ -63,5 +79,5 @@ app.factory("historyFactory", function($q, $http, FBCreds) {
         });
     };
 
-    return { getAllHistory, addHistory, deleteHistory, getSingleHistory };
+    return { getAllHistory, addHistory, deleteHistory, getSingleHistory, editHistory };
 });

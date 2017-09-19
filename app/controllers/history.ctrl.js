@@ -37,6 +37,9 @@ app.controller("historyCtrl", function($scope, $window, $location, historyFactor
         console.log("Symptoms", $scope.history.symptoms);
         historyFactory.addHistory($scope.history)
             .then((data) => {
+                console.log("submit history data:", data.data.name);
+                $scope.history.historyId = data.data.name;
+                historyFactory.editHistory(data.data.name, $scope.history);
                 $location.url("/menu");
             });
     };
