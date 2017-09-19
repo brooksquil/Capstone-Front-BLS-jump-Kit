@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('selectPatientCtrl', function($scope, $window, $location, historyFactory, userFactory, patientFactory) {
+app.controller('selectPatientCtrl', function($scope, $window, $location, historyFactory, userFactory, patientFactory, $routeParams) {
 
     $scope.allPatients = [];
     let user = userFactory.getCurrentUser();
@@ -15,12 +15,23 @@ app.controller('selectPatientCtrl', function($scope, $window, $location, history
             });
     };
 
+    let currentPatient = patientFactory.getCurrentPatient();
 
-    $scope.deletePatient = function(id) {
-        patientFactory.deletePatient(id)
-            .then((irrelevant) => {
+
+    $scope.deletePatient = function(uglyId, patientID) {
+        console.log("current Patient ugly Id", uglyId);
+        console.log("PATIENT ID", patientID);
+        patientFactory.deletePatient(uglyId)
+            .then((data) => {
+                historyFactory.getSingleHistory(patientID)
+                    .then((singleHistory) => {
+                        console.log("get single HISTORY", singleHistory);
+                        historyFactory.deleteHistory(singleHistory.historyId);
+                    });
                 showAllPatients();
             });
     };
+
+
     showAllPatients();
 });

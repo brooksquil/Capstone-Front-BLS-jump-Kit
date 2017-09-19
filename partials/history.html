@@ -2,23 +2,28 @@
     <div data-role="content">
         <div>
             <!-- symptoms -->
-            <label>Symptoms:</label>
-            <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.symptoms"><option ng-repeat="x in symptoms">{{x}}</option></select>
-            <!-- allergies -->
-            <label>Allergies:</label>
-            <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.allergies"><option ng-repeat="x in allergies">{{x}}</option></select>
-            <!-- Medications -->
-            <label>Medications:</label>
-            <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.medications"><option ng-repeat="x in medications">{{x}}</option></select>
+            <div class="row">
+                <label>Symptoms:</label>
+                <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.symptoms"><option ng-repeat="x in symptoms">{{x}}</option></select>
+                <!-- allergies -->
+                <label>Allergies:</label>
+                <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.allergies"><option ng-repeat="x in allergies">{{x}}</option></select>
+                <!-- Medications -->
+                <label>Medications:</label>
+                <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.medications"><option ng-repeat="x in medications">{{x}}</option></select>
+            </div>
+
             <!-- Past Illnesses -->
-            <label>Past Illnesses:</label>
-            <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.pastIllness"><option ng-repeat="x in pastIllness">{{x}}</option></select>
-            <!-- Last Oral Intake -->
-            <label>Last Oral Intake:</label>
-            <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.lastIntake"><option ng-repeat="x in lastIntake">{{x}}</option></select>
-            <!-- Event Leading Up To -->
-            <label>Events:</label>
-            <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.eventsTo"><option ng-repeat="x in eventsTo">{{x}}</option></select>
+            <div class="row">
+                <label>Past Illnesses:</label>
+                <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.pastIllness"><option width="200px" ng-repeat="x in pastIllness">{{x}}</option></select>
+                <!-- Last Oral Intake -->
+                <label>Last Oral Intake:</label>
+                <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.lastIntake"><option ng-repeat="x in lastIntake">{{x}}</option></select>
+                <!-- Event Leading Up To -->
+                <label>Events:</label>
+                <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.eventsTo"><option ng-repeat="x in eventsTo">{{x}}</option></select>
+            </div>
         </div>
 
         <!-- Additional Notes Input -->

@@ -43,12 +43,10 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
     };
 
+
     const getCurrentPatient = function() {
         return currentPatientId;
     };
-
-
-
 
     const deletePatient = function(id) {
         console.log("id", id);
@@ -63,7 +61,9 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
         });
     };
 
+
     const getSinglePatientid = function(passedId) {
+        console.log("passedId", passedId);
         return $q((resolve, reject) => {
             $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"&equalTo="${passedId}"`)
                 .then((patient) => {
