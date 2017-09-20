@@ -46,6 +46,11 @@ app.config(($routeProvider) => {
             controller: 'historyCtrl',
             resolve: { isAuth }
         })
+        .when('/menu/report/:patientID', {
+            templateUrl: 'partials/report.html',
+            controller: 'reportCtrl',
+            resolve: { isAuth }
+        })
         .when('/menu/report', {
             templateUrl: 'partials/report.html',
             controller: 'reportCtrl',

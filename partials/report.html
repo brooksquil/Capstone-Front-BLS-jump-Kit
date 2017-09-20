@@ -2,22 +2,22 @@
 
 
 <h1>Patient Report</h1>
-<h3>Our patient is a {{age}} year old {{gender}}. We were called for the {{calledFor}}</h3>
 
 <div class="pricing-table">
     <div class="pricing-option">
-        <i class="material-icons">person</i>
+        <i class="material-icons">perm_identity</i>
         <h1>SAMPLE</h1>
         <h3>Patient Medical History</h3>
         <hr/>
         <!-- <div ng-repeat="item in thisPatientHistory"> -->
-        <p id="history">The patient is displaying: {{thisPatientHistory.symptoms}}</p>
-        <p id="history">{{gender}} has allergies to: {{thisPatientHistory.allergies}}</p>
-        <p id="history">The patient is currently on{{thisPatientHistory.medications}}</p>
-        <p id="history">They have a history of{{thisPatientHistory.pastIllness}}</p>
-        <p id="history">{{gender}} last oral intake was {{thisPatientHistory.lastIntake}} ago.</p>
-        <p id="history">The patient was{{thisPatientHistory.eventsTo}}</p>
-        <p id="history">Additionally, {{thisPatientHistory.notes}}</p>
+        <p id="history">Symptoms: {{thisPatientHistory.symptoms}}</p>
+        <p id="history">Allergies: {{thisPatientHistory.allergies}}</p>
+        <p id="history">Medications:{{thisPatientHistory.medications}}</p>
+        <p id="history">Past Medical History:{{thisPatientHistory.pastIllness}}</p>
+        <p id="history">Last Oral Intake{{thisPatientHistory.lastIntake}}</p>
+        <p id="history">Events prior to call:{{thisPatientHistory.eventsTo}}</p>
+        <hr>
+        <p id="history">Additionally: {{thisPatientHistory.notes}}</p>
         <!-- </div> -->
     </div>
 </div>
