@@ -3,10 +3,10 @@
     Today's Patients</h3>
 
 
-<div ng-repeat="thingy in allPatients">
+<div class="selectPatient" ng-repeat="thingy in allPatients">
     <div class="panel panel-default">
         <div class="panel-body">
-            <div class="col-xs-6"><a ng-href="#!/menu/{{thingy.id}}">{{ thingy.patientId }}</a></div>
+            <div class="col-xs-6"><a ng-href="#!/menu/report/{{thingy.patientID}}">{{thingy.patientID}}</a></div>
             <div class="col-xs-2">{{thingy.calledFor}}</div>
             <!-- <div class="col-xs-2">{{thingy.gender}}</div> -->
             <div class="col-xs-1"><button ng-click="deletePatient(thingy.id, thingy.patientID)" class="btn btn-danger">X</button></div>
