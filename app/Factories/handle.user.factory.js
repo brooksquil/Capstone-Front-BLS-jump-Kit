@@ -5,12 +5,12 @@ app.factory("handleUserFactory", function($q, $http, FBCreds) {
 
     const getAllUsers = function(user) {
         let users = [];
-        console.log("url is", `${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`);
+        // console.log("url is", `${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`);
         return $q((resolve, reject) => {
             $http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`)
                 .then((itemObject) => {
                     let userCollection = itemObject.data;
-                    console.log("user Collection", userCollection);
+                    // console.log("user Collection", userCollection);
                     Object.keys(userCollection).forEach((key) => {
                         userCollection[key].id = key;
                         users.push(userCollection[key]);
@@ -27,7 +27,7 @@ app.factory("handleUserFactory", function($q, $http, FBCreds) {
         let newObj = JSON.stringify(obj);
         return $http.post(`${FBCreds.databaseURL}/users.json`, newObj)
             .then((data) => {
-                console.log("data", data);
+                // console.log("data", data);
                 return data;
             }, (error) => {
                 let errorCode = error.code;

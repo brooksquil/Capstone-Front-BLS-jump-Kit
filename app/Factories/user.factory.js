@@ -7,7 +7,7 @@ app.factory("userFactory", function($q, $http) {
     let addNewUserObj = [];
 
     const isAuthenticated = function() {
-        console.log("userFactory: isAuthentcated");
+        // console.log("userFactory: isAuthentcated");
         return new Promise((resolve, reject) => {
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {

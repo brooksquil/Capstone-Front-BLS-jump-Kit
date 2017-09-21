@@ -8,12 +8,12 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
     const getAllPatients = function(user) {
         let patients = [];
-        console.log("url is", `${FBCreds.databaseURL}/patients.json?orderBy="uid"&equalTo="${user}"`);
+        // console.log("url is", `${FBCreds.databaseURL}/patients.json?orderBy="uid"&equalTo="${user}"`);
         return $q((resolve, reject) => {
             $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="uid"&equalTo="${user}"`)
                 .then((itemObject) => {
                     let patientCollection = itemObject.data;
-                    console.log("patient Collection", patientCollection);
+                    // console.log("patient Collection", patientCollection);
                     Object.keys(patientCollection).forEach((key) => {
                         patientCollection[key].id = key;
                         patients.push(patientCollection[key]);
@@ -29,11 +29,11 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
     const addPatient = function(obj) {
         let newObj = JSON.stringify(obj);
-        console.log("obj.patientId", obj.patientID);
+        // console.log("obj.patientId", obj.patientID);
         currentPatientId = obj.patientID;
         return $http.post(`${FBCreds.databaseURL}/patients.json`, newObj)
             .then((data) => {
-                console.log("data", data);
+                // console.log("data", data);
                 return data;
             }, (error) => {
                 let errorCode = error.code;
@@ -49,7 +49,7 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
     };
 
     const deletePatient = function(id) {
-        console.log("id", id);
+        // console.log("id", id);
         return $q((resolve, reject) => {
             $http.delete(`${FBCreds.databaseURL}/patients/${id}.json`)
                 .then((response) => {
@@ -63,14 +63,14 @@ app.factory("patientFactory", function($q, $http, FBCreds) {
 
 
     const getSinglePatientid = function(passedId) {
-        console.log("passedId", passedId);
+        // console.log("passedId", passedId);
         return $q((resolve, reject) => {
             $http.get(`${FBCreds.databaseURL}/patients.json?orderBy="patientId"&equalTo="${passedId}"`)
                 .then((patient) => {
                     // console.log("patient id object", patient);
                     let singlePatientObj = patient;
                     $scope.singlePatientObj = singlePatientObj;
-                    console.log("scoped obj", $scope.singlePatientObj);
+                    // console.log("scoped obj", $scope.singlePatientObj);
                     resolve($scope.singlePatientObj);
                 })
                 .catch((error) => {
