@@ -2,7 +2,7 @@
 
 
 app.controller("addPatientCtrl", function($scope, $window, userFactory, patientFactory, $location) {
-    console.log("Are you there?");
+    // console.log("Are you there?");
     ///////////////////////////////////////
     //ADD PATIENT MODAL STUFF
     ///////////////////////////////////////
