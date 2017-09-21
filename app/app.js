@@ -3,7 +3,7 @@
 const app = angular.module("jump-kit", ['ngRoute']);
 
 let isAuth = (userFactory) => new Promise((resolve, reject) => {
-    console.log("isAuth is", userFactory);
+    // console.log("isAuth is", userFactory);
     userFactory.isAuthenticated()
         .then((userIs) => {
             if (userIs) {

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
 
-<h1>Patient Report</h1>
+<h1 id="title-report">Patient Report</h1>
 
 <div class="pricing-table">
     <div class="pricing-option">
@@ -10,14 +10,14 @@
         <h3>Patient Medical History</h3>
         <hr/>
         <!-- <div ng-repeat="item in thisPatientHistory"> -->
-        <p id="history">Symptoms: {{thisPatientHistory.symptoms}}</p>
-        <p id="history">Allergies: {{thisPatientHistory.allergies}}</p>
-        <p id="history">Medications:{{thisPatientHistory.medications}}</p>
-        <p id="history">Past Medical History:{{thisPatientHistory.pastIllness}}</p>
-        <p id="history">Last Oral Intake{{thisPatientHistory.lastIntake}}</p>
-        <p id="history">Events prior to call:{{thisPatientHistory.eventsTo}}</p>
+        <p id="history"><b>S</b>ymptoms: <b>{{thisPatientHistory.symptoms}}</b></p>
+        <p id="history"><b>A</b>llergies: <b>{{thisPatientHistory.allergies}}</b></p>
+        <p id="history"><b>M</b>edications: <b>{{thisPatientHistory.medications}}</b></p>
+        <p id="history"><b>P</b>ast Medical History: <b>{{thisPatientHistory.pastIllness}}</b></p>
+        <p id="history"><b>L</b>ast Oral Intake: <b>{{thisPatientHistory.lastIntake}}</b></p>
+        <p id="history"><b>E</b>vents prior to call: <b>{{thisPatientHistory.eventsTo}}</b></p>
         <hr>
-        <p id="history">Additionally: {{thisPatientHistory.notes}}</p>
+        <p id="history">Additionally: <b>{{thisPatientHistory.notes}}</b></p>
         <!-- </div> -->
     </div>
 </div>

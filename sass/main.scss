@@ -1,9 +1,9 @@
-//////////////////////////////////////////////////////
+//////////////////////////////////////////////////
 //LOGGEDOUT HTML STYLES
-//////////////////////////////////////////////////////
+//////////////////////////////////////////////////
 body,
 html {
-    background-color: #34515E;
+    background-color: rgba(27, 74, 194, 0.7);
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 18px;
 }
@@ -16,6 +16,10 @@ html {
     -webkit-transform: translate3d(-50%, -50%, 0);
     -moz-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0);
+}
+
+label {
+    color: white
 }
 
 .regbutton {
@@ -83,28 +87,8 @@ html {
 }
 
 //////////////////////////////////////////////////
-//LOGOUT/EDIT USER MODAL STYLES
-//////////////////////////////////////////////////
-body.modal-open #wrap {
-    -webkit-filter: blur(7px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px);
-}
-
-.modal-backdrop {
-    background: #f7f7f7;
-}
-
-.close {
-    font-size: 50px;
-    display: block;
-}
-
-////////////////////////////////////////////////////
 //NAVBAR STYLES
-////////////////////////////////////////////////////
+//////////////////////////////////////////////////
 .navbar-color-r {
     background-color: red;
 }
@@ -142,6 +126,11 @@ body.modal-open #wrap {
 /////////////////////////////////////////////////
 //USER PROFILE VIEW CARDS
 /////////////////////////////////////////////////
+#logout-wrap {
+    margin-left: 600px;
+    padding-bottom: 30px;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black');
 body {
     font: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -161,7 +150,6 @@ body {
     position: relative;
     height: 100%;
     list-style: none;
-    margin: 0;
     padding: 0 5%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -178,10 +166,10 @@ body {
     display: block;
     float: left;
     position: relative;
-    margin: 0;
-    width: 28%;
+    margin: 15px;
+    width: 40%;
     height: 0;
-    padding: 0 0 28%;
+    padding: 0 0 50%;
     -webkit-perspective: 700px;
     perspective: 700px;
 }
@@ -199,43 +187,21 @@ body {
     transform-style: preserve-3d;
 }
 
-.card-object.card-1 .front {
+.card-object.card-1 {
     background: #222 url(http://media.istockphoto.com/photos/ambulance-car-picture-id462435841?k=6&m=462435841&s=612x612&w=0&h=hv_9y25mpy8cnEMgUqcyYJZFgFFctjnLyRBOt8gbF5c=) 90% 30% no-repeat;
-    background-size: 150%;
+    background-size: 190%;
 }
 
-.card-object.card-3 .front {
+.card-object.card-3 {
     background: #222 url(https://thumbs.dreamstime.com/b/patient-chart-486082.jpg) 80% 100% no-repeat;
-    background-size: 130%;
+    background-size: 155%;
 }
 
-// .face {
-//     color: #fff;
-//     text-decoration: none;
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//     -webkit-box-pack: center;
-//     -ms-flex-pack: center;
-//     justify-content: center;
-//     -webkit-box-align: end;
-//     -ms-flex-align: end;
-//     align-items: flex-end;
-//     -ms-flex-wrap: wrap;
-//     flex-wrap: wrap;
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     -webkit-backface-visibility: hidden;
-//     backface-visibility: hidden;
+// .front {
+//     z-index: 20;
+//     background-repeat: no-repeat;
+//     background-position: 50% 50%;
 // }
-// .face
-.front {
-    z-index: 20;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-
 // .face
 .front::before {
     position: absolute;
@@ -292,17 +258,18 @@ body {
     transition: transform .28s ease, -webkit-transform .28s ease;
 }
 
-// .face
 .front .title-wrapper .title {
     position: relative;
     font-family: 'Archivo Black', sans-serif;
     width: 100%;
     text-transform: uppercase;
-    font-size: 2vw;
+    font-size: 1.8em;
     line-height: 1;
     opacity: .8;
     -webkit-transition: opacity .2s ease;
     transition: opacity .2s ease;
+    color: red;
+    text-shadow: 4px 4px black;
 }
 
 // .face
@@ -396,7 +363,7 @@ body {
 .wrimagecard {
     margin-top: 0;
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
     position: relative;
     background: #fff;
     box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
@@ -410,7 +377,7 @@ body {
 }
 
 .wrimagecard-topimage_header {
-    padding: 20px;
+    padding: 30px;
 }
 
 a.wrimagecard:hover,
@@ -438,6 +405,10 @@ a.wrimagecard:hover,
     transition: color 0.3s ease;
 }
 
+.menu-title {
+    font-size: 1em;
+}
+
 ////////////////////////////////////////////////
 //Patient Report Styles
 ////////////////////////////////////////////////
@@ -449,6 +420,12 @@ body {
     height: 100%;
     background: linear-gradient(45deg, rgba(22, 167, 175, 0.6) 5%, rgba(23, 27, 158, 0.7) 55%, rgba(68, 9, 82, 0.5) 100%) no-repeat;
     background-size: 200%;
+}
+
+#title-report {
+    color: white;
+    margin: 15px;
+    padding: 15px;
 }
 
 .demo-title {
@@ -463,10 +440,11 @@ body {
 }
 
 .pricing-table .pricing-option {
-    width: 28%;
+    width: 45%;
+    line-height: 1.5em;
     background: white;
     float: left;
-    padding: 2%;
+    padding: 5%;
     text-align: center;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
@@ -487,7 +465,7 @@ body {
 .pricing-table .pricing-option:hover h1,
 .pricing-table .pricing-option:hover span,
 .pricing-table .pricing-option:hover b {
-    color: #F85E6A;
+    color: blue;
 }
 
 .pricing-table .pricing-option:hover .front {
@@ -519,13 +497,13 @@ body {
 
 .pricing-table .pricing-option h1 {
     margin: 10px 0;
-    color: #212121;
+    color: #000000;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
 
 .pricing-table .pricing-option p {
-    color: #999;
+    color: Black;
     padding: 0 10px;
     line-height: 1.3;
 }
@@ -618,4 +596,19 @@ footer p {
 .selectPatient {
     color: black;
     font-size: 1.5em;
+}
+
+////////////////
+//History
+////////////////
+.form-control {
+    margin: 20px;
+}
+
+#addPatient-title {
+    color: white;
+}
+
+.panel-body .form-horizontal {
+    box-shadow: 10px 5px 5px black;
 }
