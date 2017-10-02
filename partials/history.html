@@ -1,46 +1,62 @@
-<div class="container">
-    <div data-role="page">
-        <div data-role="content">
-            <div>
-                <!-- symptoms -->
-                <div class="row">
-                    <label>Symptoms:</label>
-                    <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.symptoms"><option ng-repeat="x in symptoms">{{x}}</option></select>
-                    <!-- allergies -->
-                    <label>Allergies:</label>
-                    <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.allergies"><option ng-repeat="x in allergies">{{x}}</option></select>
-                    <!-- Medications -->
-                    <label>Medications:</label>
-                    <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.medications"><option ng-repeat="x in medications">{{x}}</option></select>
-                </div>
-
-                <!-- Past Illnesses -->
-                <div class="row">
-                    <label>Past Illnesses:</label>
-                    <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.pastIllness"><option width="200px" ng-repeat="x in pastIllness">{{x}}</option></select>
-                    <!-- Last Oral Intake -->
-                    <label>Last Oral Intake:</label>
-                    <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.lastIntake"><option ng-repeat="x in lastIntake">{{x}}</option></select>
-                    <!-- Event Leading Up To -->
-                    <label>Events:</label>
-                    <select type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-model="history.eventsTo"><option ng-repeat="x in eventsTo">{{x}}</option></select>
-                </div>
+<div class="container-fluid">
+    <h1 id="medHistory">Medical History</h1>
+    <!-- First Row -->
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Symptoms:</label>
+            <div ng-dropdown-multiselect="" options="symptomsOptions" selected-model="symptoms" extra-settings="searchSelectAllSettings" ng-model="history.symptoms">
             </div>
-
-            <!-- Additional Notes Input -->
-            <div class="row">
-                <div class="col-sm-8">
-                    <textarea ng-model="history.notes" rows="5" name="historyNotes" class="form-control" type="text" placeholder="Additional Notes">
-                    </textarea>
-                </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Allergies:</label>
+            <div ng-dropdown-multiselect="" options="allergiesOptions" selected-model="allergies" extra-settings="searchSelectAllSettings" ng-model="history.allergies">
             </div>
-            <!-- Submit Button -->
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <button ng-click="submitHistory()" type="button" class="btn btn-info preview-add-button">
-            <span class="glyphicon glyphicon-plus"></span> Add Patient History
-        </button>
+        </div>
+        <div class="col-sm-4">
+            <label>Medications:</label>
+            <div ng-dropdown-multiselect="" options="medicationsOptions" selected-model="medications" extra-settings="searchSelectAllSettings" ng-model="history.medications">
             </div>
-
         </div>
     </div>
+    <!-- Dividing Div -->
+    <div class="row">
+        <div class="col-sm-10">
+            <hr>
+        </div>
+    </div>
+    <!-- Second Row -->
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Past Illnesses:</label>
+            <div ng-dropdown-multiselect="" options="pastIllnessOptions" selected-model="pastIllness" extra-settings="searchSelectAllSettings" ng-model="history.pastIllness">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Last Oral Intake:</label>
+            <div ng-dropdown-multiselect="" options="lastIntakeOptions" selected-model="lastIntake" extra-settings="searchSelectAllSettings" ng-model="history.lastIntake">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Events Leading To:</label>
+            <div ng-dropdown-multiselect="" options="eventsToOptions" selected-model="eventsTo" extra-settings="searchSelectAllSettings" ng-model="history.eventsTo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Notes Input -->
+    <div class="row">
+        <div class="col-sm-10">
+            <textarea ng-model="history.notes" rows="5" name="historyNotes" class="form-control" type="text" placeholder="Additional Notes">
+                    </textarea>
+        </div>
+    </div>
+    <!-- Submit Button -->
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <button ng-click="submitHistory()" type="button" class="btn btn-info preview-add-button">
+            <span class="glyphicon glyphicon-plus"></span> Add Patient History
+        </button>
+    </div>
+
+
+</div>
