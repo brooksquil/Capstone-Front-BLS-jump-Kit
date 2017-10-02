@@ -27,6 +27,7 @@ app.controller('selectPatientCtrl', function($scope, $window, $location, history
                     .then((singleHistory) => {
                         // console.log("get single HISTORY", singleHistory);
                         historyFactory.deleteHistory(singleHistory.historyId);
+                        // resolve and then .then
                     });
                 showAllPatients();
             });

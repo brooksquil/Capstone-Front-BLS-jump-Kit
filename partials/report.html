@@ -9,8 +9,10 @@
         <h1>SAMPLE</h1>
         <h3>Patient Medical History</h3>
         <hr/>
-        <!-- <div ng-repeat="item in thisPatientHistory"> -->
-        <p id="history"><b>S</b>ymptoms: <b>{{thisPatientHistory.symptoms}}</b></p>
+        <p><b>S</b>ymptoms: <b></b></p>
+        <div ng-repeat="symptom in thisPatientHistory.symptoms">
+            <p id="history"><b>{{symptom.label}}</b></p>
+        </div>
         <p id="history"><b>A</b>llergies: <b>{{thisPatientHistory.allergies}}</b></p>
         <p id="history"><b>M</b>edications: <b>{{thisPatientHistory.medications}}</b></p>
         <p id="history"><b>P</b>ast Medical History: <b>{{thisPatientHistory.pastIllness}}</b></p>

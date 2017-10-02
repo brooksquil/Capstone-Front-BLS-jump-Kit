@@ -6,7 +6,11 @@ app.controller("historyCtrl", function($scope, $window, $location, historyFactor
     ////////////////////////////////
     //HISTORY DROPDOWN ARRAYS
     ////////////////////////////////
-    $scope.symptoms = ["Not Applicable", "Vomiting", "Nausea", "Dizziness", "Shortness of Breath", "Pain", "Injury", "Bleeding", "Seizure", "Syncopy", "Psych"];
+    $scope.symptoms = [];
+    console.log("symptoms array", $scope.symptoms);
+    $scope.symptomsOptions = [{ id: 1, label: "Not Applicable" }, { id: 2, label: "Vomiting" }, { id: 3, label: "Nausea" }, { id: 4, label: "Dizziness" }, { id: 5, label: "Shortness of Breath" }, { id: 6, label: "Pain" }, { id: 7, label: "Injury" }, { id: 8, label: "Bleeding" }, { id: 9, label: "Seizure" }, { id: 10, label: "Syncopy" }, { id: 11, label: "Psych" }, { id: 12, label: "Chest Pain" }, { id: 13, label: "Hemmoraging" }, { id: 14, label: "Pregancy/Labor" }];
+    $scope.searchSelectAllSettings = { enableSearch: true, showSelectAll: true, keyboardControls: true };
+
     $scope.allergies = ["No Allergies", "Unknown", "Environmental", "Medications(note)", "Food(note)", "Latex", "Other", "Adhesive"];
     $scope.medications = ["None", "Unknown", "Aspirin", "Acetominophen", "Buspar", "Cumidin", "Insulin", "Warfarin", "Abilify", "Nexium", "Humira", "Crestor", "Advair Diskus,", "Remicade", "Cymbalta", "Copaxone", "Lantus", "Januvia", "Lyrica", "Oxycontin", "Celebrex", "Herceptin", "Namenda", "Symbicort", "Suboxone", "Seroquel", "Viagra", "Cialis", "Flovent", "Lunesta", "Betaseron", "Simvastatin", "Omeprazole", "Metformin", "Plavix", "Prozac", "Zoloft", "Phenobarbitol", "Depakote"];
     $scope.pastIllness = ["None", "Unknown", "Diabetes", "Cancer", "HIV", "Hepatitis", "CVA", "CAD", "Cardiac", "Hypertension", "Pneumonia", "COPD", "Asthma", "Amputation", "Renal Failure", "Depression"];
@@ -38,6 +42,7 @@ app.controller("historyCtrl", function($scope, $window, $location, historyFactor
         historyFactory.addHistory($scope.history)
             .then((data) => {
                 // console.log("submit history data:", data.data.name);
+                $scope.history.symptoms = $scope.symptoms;
                 $scope.history.historyId = data.data.name;
                 historyFactory.editHistory(data.data.name, $scope.history);
                 $location.url("/menu");
