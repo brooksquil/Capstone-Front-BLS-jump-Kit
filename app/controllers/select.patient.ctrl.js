@@ -31,6 +31,7 @@ app.controller('selectPatientCtrl', function($scope, $window, $location, history
                     });
                 showAllPatients();
             });
+
     };
 
 
