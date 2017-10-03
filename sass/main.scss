@@ -415,30 +415,26 @@ body {
     line-height: 1;
     padding: 20px;
     height: 100%;
+    background: -webkit-linear-gradient(45deg, rgba(22, 167, 175, 0.6) 5%, rgba(23, 27, 158, 0.7) 55%, rgba(68, 9, 82, 0.5) 100%) no-repeat;
     background: linear-gradient(45deg, rgba(22, 167, 175, 0.6) 5%, rgba(23, 27, 158, 0.7) 55%, rgba(68, 9, 82, 0.5) 100%) no-repeat;
     background-size: 200%;
-}
-
-#title-report {
     color: white;
-    margin: 15px;
-    padding: 15px;
 }
 
 .demo-title {
     text-align: center;
-    font-size: 3rem;
-    margin-bottom: 50px;
+    font-size: 4rem;
+    margin-bottom: 60px;
 }
 
 .pricing-table {
-    display: table;
+    // display: table;
     width: 100%;
 }
 
+// change card width here
 .pricing-table .pricing-option {
     width: 45%;
-    line-height: 1.5em;
     background: white;
     float: left;
     padding: 5%;
@@ -487,21 +483,22 @@ body {
 
 .pricing-table .pricing-option i {
     font-size: 3rem;
-    color: Black;
+    color: #D8D8D8;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
 
 .pricing-table .pricing-option h1 {
     margin: 10px 0;
-    color: #000000;
+    color: black;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
 
 .pricing-table .pricing-option p {
-    color: Black;
-    padding: 0 10px;
+    color: black;
+    font-weight: bold;
+    padding: 0 15px;
     line-height: 1.3;
 }
 
@@ -537,7 +534,7 @@ body {
     padding: 15px 20px;
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: white;
     position: absolute;
     font-size: 13px;
     top: -5px;

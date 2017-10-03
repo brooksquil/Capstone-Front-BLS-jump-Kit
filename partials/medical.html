@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <h1 id="med">Medical Assessment</h1>
+    <h3>OPQRST</h3>
+    <!-- First Row -->
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Onset:</label>
+            <div ng-dropdown-multiselect="" options="onsetOptions" selected-model="onset" extra-settings="searchSelectAllSettings" ng-model="medical.onset">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Provocation:</label>
+            <div ng-dropdown-multiselect="" options="provocationOptions" selected-model="allergies" extra-settings="searchSelectAllSettings" ng-model="medical.provocation">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Quality of Pain:</label>
+            <div ng-dropdown-multiselect="" options="qualityOptions" selected-model="quality" extra-settings="searchSelectAllSettings" ng-model="medical.quality">
+            </div>
+        </div>
+    </div>
+    <!-- Dividing Div -->
+    <div class="row">
+        <div class="col-sm-10">
+            <hr>
+        </div>
+    </div>
+    <!-- Second Row -->
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Radiation:</label>
+            <div ng-dropdown-multiselect="" options="radiationOptions" selected-model="radiation" extra-settings="searchSelectAllSettings" ng-model="medical.radiation">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Severity:</label>
+            <div ng-dropdown-multiselect="" options="severityOptions" selected-model="severity" extra-settings="searchSelectAllSettings" ng-model="medical.severity">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label>Time:</label>
+            <div ng-dropdown-multiselect="" options="timeOptions" selected-model="time" extra-settings="searchSelectAllSettings" ng-model="medical.time">
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Notes Input -->
+    <div class="row">
+        <div class="col-sm-10">
+            <textarea ng-model="medical.notes" rows="5" name="medicalNotes" class="form-control" type="text" placeholder="Additional Notes">
+                        </textarea>
+        </div>
+    </div>
+    <!-- Submit Button -->
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <button ng-click="submitMedical()" type="button" class="btn btn-info preview-add-button">
+                <span class="glyphicon glyphicon-plus"></span> Add Medical Assessment
+            </button>
+    </div>
+
+
+</div>
