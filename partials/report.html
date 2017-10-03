@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
 <h1 id="title-report">Patient Report</h1>
 
 <div class="pricing-table">
     <div class="pricing-option">
-        <i class="material-icons">perm_identity</i>
+        <i class="fa fa-ambulance" style="color:#3369e8"> </i>
         <h1>SAMPLE</h1>
         <h3>Patient Medical History</h3>
         <hr/>
@@ -36,4 +36,53 @@
         <hr>
         <p id="history">Additional Notes: <b>{{thisPatientHistory.notes}}</b></p>
     </div>
+
+    <div class="pricing-option">
+        <i class="fa fa-heartbeat" style="color:rgb(215, 17, 17)"> </i>
+        <h1>OPQRST</h1>
+        <h3>Patient Medical Assessment</h3>
+        <hr/>
+        <p><b>O</b>nset: <b></b></p>
+        <div ng-repeat="onset in thisPatientMedical.onset">
+            <p class="medical"><b>{{onset.label}}</b></p>
+        </div>
+        <p><b>P</b>rovocation: <b></b></p>
+        <div ng-repeat="provocation in thisPatientMedical.provocation">
+            <p class="medical"><b>{{provocation.label}}</b></p>
+        </div>
+        <p><b>Q</b>uality: <b></b></p>
+        <div ng-repeat="quality in thisPatientMedical.quality">
+            <p class="medical"><b>{{quality.label}}</b></p>
+        </div>
+        <p><b>R</b>adiation: <b></b></p>
+        <div ng-repeat="radiation in thisPatientMedical.radiation">
+            <p class="medical"><b>{{radiation.label}}</b></p>
+        </div>
+        <p><b>S</b>everity: <b></b></p>
+        <div ng-repeat="severity in thisPatientMedical.severity">
+            <p class="medical"><b>{{severity.label}}</b></p>
+        </div>
+        <p><b>T</b>ime: <b></b></p>
+        <div ng-repeat="time in thisPatientMedical.time">
+            <p class="medical"><b>{{time.label}}</b></p>
+        </div>
+        <hr>
+        <p id="medical">Additional Notes: <b>{{thisPatientMedical.notes}}</b></p>
+    </div>
+
+    <!-- <div class="pricing-option">
+        <i class="material-icons">art_track</i>
+        <h1>Print design</h1>
+        <hr />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente harum voluptatum, sit cum voluptatibus inventore quae qui provident eveniet dicta at, quibusdam ipsam iusto reprehenderit hic saepe nesciunt sed illo.</p>
+        <hr />
+        <div class="price">
+            <div class="front">
+                <span class="price">999 <b>$</b></span>
+            </div>
+            <div class="back">
+                <a href="#" class="button">Purchase now</a>
+            </div>
+        </div>
+    </div> -->
 </div>
